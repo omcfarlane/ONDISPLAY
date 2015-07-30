@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+	<head>
+		<meta name="jacket.uid" content="com.omar.ondisplay" />
+		<meta name="jacket.title" content="ONDISPLAY" />
+		<meta name="jacket.author" content="Omar McFarlane" />
+		<meta name="jacket.url" content="https://github.com/omcfarlane/ONDISPLAY" />
+		<meta name="jacket.version" content="1.0" />
+		<meta name="jacket.bounds" content="1440x890 at 0x0" />		
+		<meta name="jacket.variations" content="ONDISPLAY v01" />
+		<meta name="jacket.options" content="no-dragging" />
+
+		<link rel="stylesheet" type="text/css" href="index.css"  />
+
+		<script type="text/javascript">
+
+		//When user changes jacket to yours, or Simplify starts with your jacket this event arrives
+		Simplify.listen(Simplify.events.ready, function(initial_state)
+		{
+			var screensize = Simplify.getSystemScreenSize();
+			Simplify.setJacketFrame({"height" : screensize.height, "top" : 0, "left" : 0 });
+			Simplify.setJacketFrame({"width" : screensize.width})
+
+			$(".showcase").animate({"opacity": "0.9"},1000);
+			$(".cover").animate({"opacity": "1"},500);
+		});
+
+
+
+		//Changing cover image
+
+		Simplify.listen(Simplify.events.newCover, function(cover)
+		{
+			//Undefined cover means stopped playback
+			if (cover == undefined)
+			{
+				$(".cover").css("background-image", "url(images/default.png)");
+				return;
+			}
+
+			//Setting cover image
+			$(".cover").css("background-image", "url('" + cover + "')");
+			$(".showcase").css("background-image", "url('" + cover + "')");
+
+		});
+
+		
+		</script>
+	</head>
+	<body>
+		<div class="showcase"></div>
+		<div class="cover"><div class="image"></div></div>
+	</body>
+</html>
