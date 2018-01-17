@@ -1,3 +1,6 @@
+# 💀 THIS PROJECT HAS BEEN ABANDONED
+
+
 # ONDISPLAY
 A fullscreen hi-res jacket for showing off album art with [Simplify](http://mmth.us/simplify/ "Simplify").
 
